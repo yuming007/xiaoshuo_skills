@@ -1,4 +1,4 @@
 interface:
   display_name: "小说章节大纲"
-  short_description: "依据设定、卷纲、前文与伏笔生成指定章节结构化大纲"
-  default_prompt: "使用 $novel-outline-planner 生成第 N 章的大纲。"
+  short_description: "依据设定、卷纲、前文与伏笔生成可支撑约4000字正文的结构化大纲"
+  default_prompt: "使用 $novel-outline-planner 生成第 N 章的大纲，默认可支撑约 4000 字正文。"
