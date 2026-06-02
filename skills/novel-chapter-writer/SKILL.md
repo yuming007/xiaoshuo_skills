@@ -83,13 +83,14 @@ python3 scripts/novel_context.py chapter --chapter N
 4. 读取本章会出场的相关人物档案，至少包括主角与最近一章涉及的关键人物
 5. `references/novel-bible.md`
 6. `references/naturalness-rules.md`
-7. `references/qidian-editor-rules.md`
-8. `references/qidian-opening-patterns.md`
-9. `references/tracking-protocol.md`
-10. `references/history-hook-rules.md`
-11. 如果工程内存在 `tracking/foreshadows.md`、`tracking/timeline.md`、`tracking/character-status.md`，按当前章相关性抽读
-12. 先整理一份“最简记忆包”，只保留本章写错风险最高的信息
-13. 按任务性质补读共享专项模块：
+7. `references/readability-rules.md`
+8. `references/qidian-editor-rules.md`
+9. `references/qidian-opening-patterns.md`
+10. `references/tracking-protocol.md`
+11. `references/history-hook-rules.md`
+12. 如果工程内存在 `tracking/foreshadows.md`、`tracking/timeline.md`、`tracking/character-status.md`，按当前章相关性抽读
+13. 先整理一份“最简记忆包”，只保留本章写错风险最高的信息
+14. 按任务性质补读共享专项模块：
    - 当前章章纲偏薄、阶段目标不清或需要回看章节结构时，补读 `references/modules/volume_outline/runtime.md`
    - 默认至少读 `references/modules/plot_logic/runtime.md`
    - 默认至少读 `references/modules/chapter_ending/runtime.md`
@@ -98,8 +99,8 @@ python3 scripts/novel_context.py chapter --chapter N
    - 关系戏重时，补读 `references/modules/dialogue/runtime.md`
    - 与上一章承接紧时，补读 `references/modules/transition/runtime.md`
    - 人物状态复杂或跨章余波重时，补读 `references/modules/character_consistency/runtime.md`
-14. 最近一章正文
-15. 如当前章承接关系很强，再补读最近两到三章正文
+15. 最近一章正文
+16. 如当前章承接关系很强，再补读最近两到三章正文
 
 如果当前章已有旧稿，必须先读旧稿，再决定是覆盖重写还是在原文基础上修订。
 
@@ -150,7 +151,7 @@ python3 scripts/novel_context.py chapter --chapter N
 
 ### 4. 正文写法
 
-正文必须优先贴合当前前六章已经形成的实际文风，而不只是抽象模仿“历史正剧”。
+正文要承接当前前六章已经形成的剧情、人物关系和基本气质，但文面默认要往更顺口、更清楚、更像连载稿的方向校正，不要把前文里已经偏沉、偏密、偏正文腔的部分继续放大。
 
 保持这些特征：
 
@@ -158,15 +159,17 @@ python3 scripts/novel_context.py chapter --chapter N
 - 章节标题格式统一为“第X章 章名”
 - 单章体量默认控制在 4000 字左右，场景数量与推进密度要足以撑起这个篇幅，但不要靠重复解释和空转硬凑字数
 - 开头常用明确时间、地点、气候或场景锚点切入
-- 允许较浓的环境描写与长段内心复盘，但必须服务于情节推进
+- 环境描写与内心复盘都要压量。能两三句交代清楚，就不要拖成整段；一旦开始讲道理，要尽快接回动作、对白或新信息
 - 对话要体现试探、权衡、利害，而不是空泛喊口号
 - 主角思考方式始终偏法家：先看权力、制度、利益、执行条件
-- 文气要沉稳、克制，不写爽文化爆发句式
+- 文气可以沉稳、克制，但可读性优先。先保证读者一遍能读顺，再谈文气和质感
+- 优先用常用词、明白句、短中句。不要为了显得厚重、古雅、深刻，故意写绕、写满、写得像策论
 - 句式不要过分整齐，不要反复使用同一类排比、总结句、判断句
 - 允许局部粗粝，宁可朴一点，也不要用力过猛地“写得像文学”
 - 结尾尽量用动作、场景余波、半句话头收住，而不是每章都用概括性总结句收束
 - 不要把人物都写得很会说话，配角语言要带身份、局限和生活气
 - 权谋感主要来自程序、责任链、称呼、站位、物证和留白，不来自大声讲道理
+- 一段里优先只完成一项任务：交代现场、推进事务或点出判断。不要一段里景、情、理全挤满
 
 ### 4.1 平台节奏校准
 
@@ -188,6 +191,7 @@ python3 scripts/novel_context.py chapter --chapter N
 - 每章至少要有：当章事务、当章阻力、部分兑现、章末牵引
 - 主角必须在具体处境里使用自己的优势，不能只在脑中高明
 - 文字优先流畅直白，不堆辞藻，不玩现代梗
+- 追读感主要来自问题清楚、事务推进和章末余力，不来自句子故作深沉
 - 历史读者更看重合理与情怀，不要靠无脑打脸推进
 - 你的书仍保持历史正剧底色，不改成轻佻爽文、不改成插科打诨腔
 
@@ -201,21 +205,29 @@ python3 scripts/novel_context.py chapter --chapter N
   - 每章都有部分兑现
   - 章末留半步，把读者推向下一章
 
-## 关于自然度
+## 关于自然度与可读性
 
 目标是写得更自然、更像连载稿，减少模板腔和明显机器感。
+
+默认先满足一条：
+
+- 普通网文读者第一次读时，基本不用回看句子，就能知道谁在做什么、这段话为什么要写
 
 不要做的事：
 
 - 不要为了“像小说”而每段都端着
 - 不要为了“高级”而密集堆砌排比、长句、抽象判断
+- 不要把简单意思故意写重、写古、写得半文半白
+- 不要连续两到三段只靠气氛、心理、感慨撑住，而没有新动作、新信息、新对话
 - 不要专门朝“规避检测”方向设计文本
 
 要做的事：
 
+- 多用常见词和直给句，先把意思说清
 - 让信息落在人物、动作、场景和关系里
+- 每一到两段至少给读者一个可见动作、对白或新信息
 - 接受局部朴、局部粗、局部留白
-- 保留前六章已经形成的自然节奏，而不是另起一套腔调
+- 保留前六章已经形成的自然节奏，但文面默认向更顺口、更易读校正，而不是机械继承前文的沉重句法
 
 ### 4.2 起点历史读者专项约束
 
@@ -238,7 +250,7 @@ python3 scripts/novel_context.py chapter --chapter N
 
 文面修整顺序：
 
-- 结构、人物、转场成立后，必须用 `references/modules/anti_ai_voice/runtime.md` 做一次去模板腔和去 AI 味自检
+- 结构、人物、转场成立后，先用 `references/readability-rules.md` 做一次通顺度压缩，再用 `references/modules/anti_ai_voice/runtime.md` 做一次去模板腔和去 AI 味自检
 
 ### 4.4 去 AI 味默认执行
 
@@ -252,13 +264,14 @@ python3 scripts/novel_context.py chapter --chapter N
 - Gate D：节奏太平均
 - Gate E：人物声音同质
 - Gate F：章末总结体
+- Gate G：晦涩与正文腔
 
 处理原则：
 
 - 只改表达，不改剧情功能
 - 优先删掉套话，而不是换成另一句漂亮套话
 - 章末一律避免“他不知道的是”“真正的风暴才刚开始”这一类空泛预告
-- 历史文允许沉稳，但不允许滑、满、匀、假
+- 历史文允许沉稳，但不允许滑、满、匀、假，也不允许句子故意拧着写
 
 完稿后强制：
 
@@ -317,7 +330,8 @@ python3 scripts/novel_context.py chapter --chapter N
    - 对白压力问题 -> `references/modules/dialogue/runtime.md`
    - 章末问题 -> `references/modules/chapter_ending/runtime.md`
 3. 结构层通过后，再按 `references/modules/anti_ai_voice/runtime.md` 做文面去模板腔和去 AI 味检查
-4. 若本次为续写或重写，再补查 tracking 是否需要回填
+4. 再按 `references/readability-rules.md` 抽查三到五段，确认读者一遍能读顺
+5. 若本次为续写或重写，再补查 tracking 是否需要回填
 
 正文自检清单：
 
@@ -331,8 +345,11 @@ python3 scripts/novel_context.py chapter --chapter N
 - 信息是否主要落在场景、动作、关系里，而不是大段解释
 - 是否默认体现了起点历史频道的追读节奏，而不是只有在用户额外要求时才启用
 - 文字是否流畅直白，是否存在明显模板腔、排比过多、总结句过多
+- 是否存在需要回读才知道主语、宾语或因果关系的长句、绕句
+- 是否存在简单意思被故意写重、写深、写得像正文点评或策论的地方
 - 是否命中了明显高危 AI 句式，如“不是A，而是B”“……带着……”“他知道……”“他终于明白……”
 - 是否存在同一瞬间被拆成两到三段反复写
+- 是否连续两段以上没有新动作、新对白、新信息，只剩气氛、心理或判断
 - 是否存在所有人物一个语气说话的问题
 - 是否避免了明显现代网络词、玩梗式对白、轻佻爽文化爆发句
 - 章末是否能把读者推向下一章，而不是用空洞总结收尾
@@ -368,6 +385,7 @@ python3 scripts/novel_context.py chapter --chapter N
 - `references/characters/`
 - `references/novel-bible.md`
 - `references/naturalness-rules.md`
+- `references/readability-rules.md`
 - `references/tracking-protocol.md`
 - `references/history-hook-rules.md`
 - `references/qidian-editor-rules.md`
