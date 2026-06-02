@@ -223,3 +223,109 @@ skill 仍然会保留：
 - `~/.codex/skills/novel-outline-planner`
 
 如果后面你继续改项目里的 skill，最好也顺手同步安装版，避免“项目里是新规则，实际调用还是旧规则”。
+
+## 12. 现在新增了专项模块层
+
+当前这套小说 skills 已经不再只是：
+
+- 一个写章纲的 skill
+- 一个写正文的 skill
+
+现在中间多了一层共享专项模块，放在：
+
+`skills/novel-chapter-writer/references/modules/`
+
+这层不是让你单独调用一个新 skill，而是让两个主 skill 在内部更像“先诊断，再生成，再审查”。
+
+目前内置了这些模块：
+
+- `volume_outline`
+- `plot_logic`
+- `character_consistency`
+- `transition`
+- `dialogue`
+- `chapter_ending`
+- `anti_ai_voice`
+- `consistency_review`
+
+### 它们分别管什么
+
+- `volume_outline`
+  管章纲和卷级结构，防止章节只剩事件流水账。
+- `plot_logic`
+  管动机、触发、决策、后果、兑现这条因果链。
+- `character_consistency`
+  管人物目标、情绪、关系、身体、声音五类连续性。
+- `transition`
+  管时间、空间、情绪、视角和章末到下章第一拍的承接。
+- `dialogue`
+  管对白里的身份差、利益差、压迫感和刀口。
+- `chapter_ending`
+  管章末落点、余力和追读拉力。
+- `anti_ai_voice`
+  管空泛总结、套话氛围、统一腔调和过于工整的句式。
+- `consistency_review`
+  管完稿后的统一六检，是最后一道质量闸门。
+
+### 现在的默认内部流程
+
+#### 章纲阶段
+
+`novel-outline-planner` 现在会默认结合：
+
+- `volume_outline`
+- `plot_logic`
+- `chapter_ending`
+
+如果当前章承接紧或人物复杂，还会额外参考：
+
+- `transition`
+- `character_consistency`
+
+#### 正文阶段
+
+`novel-chapter-writer` 现在默认不是直接硬写，而是按这个顺序内部工作：
+
+1. 先过 `plot_logic`
+2. 再过 `character_consistency`
+3. 承接紧时过 `transition`
+4. 关系戏和冲突戏过 `dialogue`
+5. 收尾前过 `chapter_ending`
+6. 文面层再过 `anti_ai_voice`
+7. 完稿后强制过 `consistency_review`
+
+### 正文现在的六检闭环
+
+写完一章后，默认至少内部检查这六项：
+
+1. 剧情逻辑
+2. 人物目标
+3. 情绪关系
+4. 身体信息
+5. 场景转场
+6. 章末承接
+
+任意两项不稳，就不该直接落盘，而是回对应模块修。
+
+### 这层和原来的区别
+
+原来更像：
+
+- 读资料
+- 写章纲或正文
+- 做一轮总表自检
+
+现在更像：
+
+- 读资料
+- 判断问题先卡在结构、人物、转场、对白还是章末
+- 用对应模块补最关键的一层
+- 再写章纲或正文
+- 写完后统一过六检
+
+这样做的好处是：
+
+- 逻辑问题不再靠润色硬遮
+- 人物连续性更容易守住
+- 章末和下一章第一拍更容易接牢
+- 去模板腔不再只靠最后临时改词

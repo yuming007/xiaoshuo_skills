@@ -76,8 +76,17 @@ python3 scripts/novel_context.py chapter --chapter N
 6. `references/naturalness-rules.md`
 7. `references/qidian-editor-rules.md`
 8. `references/qidian-opening-patterns.md`
-9. 最近一章正文
-10. 如当前章承接关系很强，再补读最近两到三章正文
+9. 按任务性质补读共享专项模块：
+   - 当前章章纲偏薄、阶段目标不清或需要回看章节结构时，补读 `references/modules/volume_outline/runtime.md`
+   - 默认至少读 `references/modules/plot_logic/runtime.md`
+   - 默认至少读 `references/modules/chapter_ending/runtime.md`
+   - 完稿前必读 `references/modules/consistency_review/runtime.md`
+   - 关系戏重时，补读 `references/modules/dialogue/runtime.md`
+   - 与上一章承接紧时，补读 `references/modules/transition/runtime.md`
+   - 人物状态复杂或跨章余波重时，补读 `references/modules/character_consistency/runtime.md`
+   - 重写旧稿且文面发空时，补读 `references/modules/anti_ai_voice/runtime.md`
+10. 最近一章正文
+11. 如当前章承接关系很强，再补读最近两到三章正文
 
 如果当前章已有旧稿，必须先读旧稿，再决定是覆盖重写还是在原文基础上修订。
 
@@ -165,6 +174,27 @@ python3 scripts/novel_context.py chapter --chapter N
 - 本书主要爽感放在权、势、智、名与时代情怀，不走低俗擦边路线
 - 一章里如果没有可见事务，只有复盘和感慨，要主动补一个现场问题或现实差事
 
+### 4.3 专项模块默认链路
+
+本 skill 现在默认吸收共享专项模块，不再只靠主提示词硬写。
+
+开写前最低链路：
+
+1. 用 `references/modules/plot_logic/runtime.md` 先写本章因果链
+2. 用 `references/modules/character_consistency/runtime.md` 检查主角与关键人物状态是否接得上
+3. 用 `references/modules/transition/runtime.md` 检查上一章余力怎样带进本章
+4. 关系与冲突场景用 `references/modules/dialogue/runtime.md` 压对白
+5. 本章收束前用 `references/modules/chapter_ending/runtime.md` 先定章末落点
+
+文面修整顺序：
+
+- 结构、人物、转场成立后，才允许用 `references/modules/anti_ai_voice/runtime.md` 去模板腔
+
+完稿后强制：
+
+- 必须用 `references/modules/consistency_review/runtime.md` 过六检
+- 任意两项不稳，不得直接落盘，必须回对应模块修
+
 ### 5. 当前连续性硬约束
 
 续写时必须保持：
@@ -173,8 +203,9 @@ python3 scripts/novel_context.py chapter --chapter N
 - 贾诩在本书里出身凉州士族兼将门，有父母、兄长、妻子与幼子
 - 第四章已经与马腾相识
 - 第五章已经通过光禄勋征辟入洛为郎中
-- 第六章已经在南掖门拦过王甫义子李顺，并与段颎、王甫、杨赐形成明确关系
-- 第六章结尾已经立下主角新准则：“法不可弃，锋不可露”
+- 第6章到第9章采用重构路线：旧版“南掖拦宦”正文不再视为有效 canon
+- 这一阶段应围绕凉州边报、军饷封事、门簿底本与士宦暗斗推进
+- “法不可弃，锋不可露”应作为第9章阶段收束后的结果，而不是开写时默认已完成的状态
 
 ### 6. 落盘规则
 
@@ -203,6 +234,17 @@ python3 scripts/novel_context.py chapter --chapter N
 3. 只要有硬性条件不满足，就重写相关段落、场景甚至整章结构
 4. 直到满足要求后，才允许写入最终文件
 
+正文自检执行顺序：
+
+1. 先按 `references/modules/consistency_review/runtime.md` 做六检
+2. 有问题时回跳：
+   - 逻辑问题 -> `references/modules/plot_logic/runtime.md`
+   - 人物目标、情绪、关系、身体、声音问题 -> `references/modules/character_consistency/runtime.md`
+   - 转场承接问题 -> `references/modules/transition/runtime.md`
+   - 对白压力问题 -> `references/modules/dialogue/runtime.md`
+   - 章末问题 -> `references/modules/chapter_ending/runtime.md`
+3. 结构层通过后，再按 `references/modules/anti_ai_voice/runtime.md` 做文面去模板腔检查
+
 正文自检清单：
 
 - 是否与已写正文、现有章纲、人物档案冲突
@@ -218,6 +260,13 @@ python3 scripts/novel_context.py chapter --chapter N
 - 是否避免了明显现代网络词、玩梗式对白、轻佻爽文化爆发句
 - 章末是否能把读者推向下一章，而不是用空洞总结收尾
 - 若为第1章到第3章、卷首章或重写开篇，是否严格执行了 `references/qidian-opening-patterns.md`
+- 是否已经按共享模块完成六检：
+  - 剧情逻辑
+  - 人物目标
+  - 情绪关系
+  - 身体信息
+  - 场景转场
+  - 章末承接
 
 重写规则：
 
@@ -243,6 +292,15 @@ python3 scripts/novel_context.py chapter --chapter N
 - `references/naturalness-rules.md`
 - `references/qidian-editor-rules.md`
 - `references/qidian-opening-patterns.md`
+- `references/modules/README.md`
+- `references/modules/volume_outline/runtime.md`
+- `references/modules/plot_logic/runtime.md`
+- `references/modules/character_consistency/runtime.md`
+- `references/modules/transition/runtime.md`
+- `references/modules/dialogue/runtime.md`
+- `references/modules/chapter_ending/runtime.md`
+- `references/modules/anti_ai_voice/runtime.md`
+- `references/modules/consistency_review/runtime.md`
 - `references/chapter-outlines.md`
 - `assets/sample-novel-project/`
 - `../novel-skills-tutorial.md`

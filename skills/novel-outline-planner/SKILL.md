@@ -64,8 +64,14 @@ python3 scripts/novel_context.py outline --chapter N
 6. `../novel-chapter-writer/references/naturalness-rules.md`
 7. `../novel-chapter-writer/references/qidian-editor-rules.md`
 8. `../novel-chapter-writer/references/qidian-opening-patterns.md`
-9. 最近一章正文
-10. 如该章承接紧密，再补读最近两到三章正文
+9. 按任务性质补读共享专项模块：
+   - 默认至少读 `../novel-chapter-writer/references/modules/volume_outline/runtime.md`
+   - 当前章冲突、因果或阻力偏弱时，补读 `../novel-chapter-writer/references/modules/plot_logic/runtime.md`
+   - 章末牵引偏弱时，补读 `../novel-chapter-writer/references/modules/chapter_ending/runtime.md`
+   - 当前章与上一章承接紧时，补读 `../novel-chapter-writer/references/modules/transition/runtime.md`
+   - 多人物并行或关系续接复杂时，补读 `../novel-chapter-writer/references/modules/character_consistency/runtime.md`
+10. 最近一章正文
+11. 如该章承接紧密，再补读最近两到三章正文
 
 ### 3. 大纲必须解决什么
 
@@ -125,6 +131,21 @@ python3 scripts/novel_context.py outline --chapter N
 - 更远处的走向，只要写清方向、阶段冲突与预期转折即可
 - 不要为了求新奇硬造大量陌生名词，优先使用读者容易理解的说法
 
+### 3.4 专项模块默认接入
+
+本 skill 现在默认吸收共享专项模块的结构化检查，不再只靠经验判断。
+
+最低要求：
+
+- 用 `volume_outline/runtime.md` 检查本章是不是有“目标、阻力、变化、章末拉力”
+- 用 `plot_logic/runtime.md` 检查本章冲突是不是合因果，不是作者硬推
+- 用 `chapter_ending/runtime.md` 检查章末是否真能把人推向下一章
+
+按需要补充：
+
+- 若本章紧接上一章余波，补用 `transition/runtime.md`
+- 若本章涉及多人物关系续接，补用 `character_consistency/runtime.md`
+
 ### 4. 大纲格式
 
 优先使用下面格式，确保正文 skill 可直接拿来写：
@@ -160,8 +181,9 @@ python3 scripts/novel_context.py outline --chapter N
 
 - 当前故事起步时间是延熹十年，现进度推进到熹平元年
 - 贾诩已经完成从凉州家中蛰伏到入洛出仕的第一阶段转折
-- 主角已与马腾结识，与杨赐、杨元、王甫、段颎有了明确交锋关系
-- 第六章后的核心变化不是“主角大出风头”，而是“主角学会更迂回地守法”
+- 主角已与马腾结识，并已进入杨赐、杨元所主导的郎署与南掖门体系
+- 第6章到第9章当前采用重构路线：围绕凉州边报、军饷封事与门簿程序展开士宦暗斗
+- “法不可弃，锋不可露”应作为这一组四章阶段收束后的结果，而不是预设成已发生事实
 
 ### 6. 落盘规则
 
@@ -189,6 +211,13 @@ python3 scripts/novel_context.py outline --chapter N
 3. 只要有硬性条件不满足，就重做对应场景或整章结构
 4. 直到满足要求后，才允许写入最终文件
 
+自检执行顺序：
+
+1. 先过 `../novel-chapter-writer/references/modules/volume_outline/runtime.md`
+2. 再过 `../novel-chapter-writer/references/modules/plot_logic/runtime.md`
+3. 再过 `../novel-chapter-writer/references/modules/chapter_ending/runtime.md`
+4. 如承接紧或人物复杂，再补过 `transition/runtime.md`、`character_consistency/runtime.md`
+
 章纲自检清单：
 
 - 是否与已写正文、现有人物档案、当前剧情状态冲突
@@ -202,6 +231,10 @@ python3 scripts/novel_context.py outline --chapter N
 - 若为第1章到第3章或卷首章，是否严格满足起点开局分工
 - 是否前详后略，没有把远期剧情写死到失去弹性
 - 是否避免把“道理”提前说尽，给正文留出发挥空间
+- 是否已经按共享模块规则检查过：
+  - 本章目标、阻力、变化、章末拉力
+  - 动机、触发、后果是否成立
+  - 章末是否能被下一章第一拍接住
 
 重写规则：
 
@@ -227,5 +260,11 @@ python3 scripts/novel_context.py outline --chapter N
 - `../novel-chapter-writer/references/naturalness-rules.md`
 - `../novel-chapter-writer/references/qidian-editor-rules.md`
 - `../novel-chapter-writer/references/qidian-opening-patterns.md`
+- `../novel-chapter-writer/references/modules/README.md`
+- `../novel-chapter-writer/references/modules/volume_outline/runtime.md`
+- `../novel-chapter-writer/references/modules/plot_logic/runtime.md`
+- `../novel-chapter-writer/references/modules/chapter_ending/runtime.md`
+- `../novel-chapter-writer/references/modules/transition/runtime.md`
+- `../novel-chapter-writer/references/modules/character_consistency/runtime.md`
 - `references/chapter-outlines.md`
 - `../novel-skills-tutorial.md`
