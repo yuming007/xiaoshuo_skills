@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "names:raw": "node scripts/fantasy_naming.js",
+    "names:project": "node scripts/fantasy_naming_project.js"
   },
   "keywords": [],
   "author": "",

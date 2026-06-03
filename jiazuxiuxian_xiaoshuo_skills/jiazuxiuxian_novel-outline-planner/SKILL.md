@@ -102,6 +102,7 @@ python3 scripts/novel_context.py outline --chapter N
 26. 多人物并行或关系续接复杂时，补读 `../jiazuxiuxian_novel-chapter-writer/references/modules/character_consistency/runtime.md`
 27. 最近一章正文
 28. 如该章承接紧密，再补读最近两到三章正文
+29. 如果本章或本组章要新增稳定命名对象，补读 `references/naming-rules.md`
 
 ### 2.1 章纲前的最简记忆包
 
@@ -190,6 +191,26 @@ python3 scripts/novel_context.py outline --chapter N
 - `追踪/伏笔.md` 里哪些条目会在当前多章内推进
 - `追踪/时间线.md` 是否允许把这些事务连续排进来
 - `追踪/角色状态.md` 是否支持人物关系继续这么走
+
+### 3.5 命名生成与筛选
+
+- 本 skill 默认允许使用本地安装的 `random_chinese_fantasy_names`
+- 统一通过共享脚本调用：
+
+```bash
+node ../../scripts/fantasy_naming_project.js --type name --count 20 --family 陆
+node ../../scripts/fantasy_naming_project.js --type clan --count 20 --kind 社
+node ../../scripts/fantasy_naming_project.js --type location --count 20 --kind 岭
+node ../../scripts/fantasy_naming_project.js --type skill --count 20 --kind 诀
+```
+
+- 工具只生成候选，不替你定稿
+- 默认优先使用项目过滤版，而不是原始直出版
+- 章纲里若新增角色名、势力名、地名、功法名，要优先考虑：
+  - 是否符合本书气质
+  - 是否顺口易记
+  - 是否与已有名称撞感
+  - 是否利于后续连载识别
 
 ### 4. 大纲格式
 

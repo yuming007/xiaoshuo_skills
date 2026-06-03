@@ -149,6 +149,7 @@ python3 scripts/novel_context.py chapter --chapter N
 29. 人物状态复杂或跨章余波重时，补读 `references/modules/character_consistency/runtime.md`
 30. 最近一章正文
 31. 如当前章承接关系很强，再补读最近两到三章正文
+32. 如果本章需要新增角色名、势力名、地名、功法名，补读 `references/naming-rules.md`
 
 如果当前章已有旧稿，必须先读旧稿，再决定是覆盖重写还是在原文基础上修订。
 
@@ -256,6 +257,34 @@ python3 scripts/novel_context.py chapter --chapter N
 - 境界提升、产业扩张、族人培养、势力吞并要相互咬合，不能各写各的
 - 既不能只剩爽点，也不能只剩沉重；要让读者持续看到“这一脉在站起来”
 
+### 4.3 命名生成与筛选
+
+- 本 skill 默认允许使用本地安装的 `random_chinese_fantasy_names`
+- 调用脚本：
+
+```bash
+node ../../scripts/fantasy_naming_project.js --type name --count 20 --family 陆
+node ../../scripts/fantasy_naming_project.js --type clan --count 20 --kind 社
+node ../../scripts/fantasy_naming_project.js --type location --count 20 --kind 岭
+node ../../scripts/fantasy_naming_project.js --type skill --count 20 --kind 诀
+```
+
+- 真实 CommonJS 用法应视为：
+
+```js
+const pkg = require("random_chinese_fantasy_names");
+```
+
+- 不要使用 README 里那个 `require("random_chinese_fantasy_names/commonjs")` 子路径写法，当前包的 `exports` 未暴露该子路径，直接调用会报错
+- 默认优先走 `fantasy_naming_project.js`，它会先做一轮项目定制过滤
+- 工具只用来生成候选，不直接替你做最终定名
+- 出现以下情况时，优先自己筛掉：
+  - 和现有人名过近
+  - 太像现成头部作品风格
+  - 过花、过玄、过生僻
+  - 虽仙侠但不适合本书这种地面经营型家族文
+- 有命名需求时，默认补读 `references/naming-rules.md`
+
 ## 关于自然度与可读性
 
 目标是写得更自然、更像连载稿，减少模板腔和明显机器感。
@@ -300,3 +329,7 @@ python3 scripts/novel_context.py chapter --chapter N
 - `追踪/伏笔.md` 是否新埋、推进或回收了条目
 - `追踪/时间线.md` 是否需要推进
 - `追踪/角色状态.md` 是否需要更新关键人物状态
+- 如果新增了稳定命名对象，检查是否要同步到：
+  - `设定/命名储备.md`
+  - 对应 `设定/角色/*.md`
+  - 对应 `设定/势力/*.md`
