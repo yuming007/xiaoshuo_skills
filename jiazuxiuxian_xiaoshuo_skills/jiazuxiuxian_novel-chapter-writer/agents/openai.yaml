@@ -1,4 +1,4 @@
 interface:
-  display_name: "仙侠正文生成"
-  short_description: "依据设定、卷纲、细纲、追踪与前文章节续写约4000字的仙侠家族小说正文"
-  default_prompt: "使用 $jiazuxiuxian_novel-chapter-writer 按第 N 章设定生成约 4000 字、通俗易读、连载感更强的仙侠家族小说正文。"
+  display_name: "仙侠写作统筹"
+  short_description: "统一生成仙侠家族小说正文、章纲与设定，并在完成后同步追踪上下文"
+  default_prompt: "使用 $jiazuxiuxian_novel-chapter-writer 生成或修订第 N 章正文、章纲或相关设定，并在完成后同步更新当前追踪上下文。"
