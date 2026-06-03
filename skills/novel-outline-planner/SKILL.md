@@ -1,5 +1,5 @@
 ---
-name: novel-outline-planner
+name: jiazuxiuxian_novel-outline-planner
 description: 生成长篇历史小说章节大纲的中文技能。用于用户要求“生成第 N 章大纲”“补第 N 章章纲”“规划下一章或后续几章”时调用。技能默认读取共享小说工程中的已写章节、当前剧情状态、总设定与已有章纲，并将新大纲写入 chapter-outlines.md。适合连载规划、补全断档章纲、根据前文修正后续走向，并默认为单章约 4000 字正文提供足够材料。
 ---
 

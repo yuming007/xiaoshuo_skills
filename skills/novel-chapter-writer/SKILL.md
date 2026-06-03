@@ -1,5 +1,5 @@
 ---
-name: novel-chapter-writer
+name: jiazuxiuxian_novel-chapter-writer
 description: 生成长篇历史小说章节正文的中文技能。用于用户要求“写第 N 章”“续写第 N 章”“重写某章正文”时调用。技能默认读取共享小说工程中的已写章节、章节大纲、当前剧情状态和总设定，并将新正文保存到对应的 chapter-XXXX.txt 文件。适合持续连载、按既有文风续写、保持前后文一致，默认单章产出约 4000 字。
 ---
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "仙侠章纲规划"
+  short_description: "依据设定、卷纲、前文与追踪生成可支撑约4000字正文的仙侠家族章纲"
+  default_prompt: "使用 $jiazuxiuxian_novel-outline-planner 生成第 N 章的大纲，默认可支撑约 4000 字仙侠家族小说正文。"

@@ -9,7 +9,7 @@ def default_project_root() -> Path:
     env_root = os.environ.get("NOVEL_PROJECT_ROOT")
     if env_root:
         return Path(env_root)
-    return Path(__file__).resolve().parents[2] / "novel-chapter-writer" / "assets" / "sample-novel-project"
+    return Path(__file__).resolve().parents[2] / "jiazuxiuxian_novel-chapter-writer" / "assets" / "sample-novel-project"
 
 
 def chapter_filename(chapter: int) -> str:
