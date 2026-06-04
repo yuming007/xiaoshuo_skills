@@ -28,7 +28,7 @@ def default_reviewed_chapters_dir(project_root: Path) -> Path | None:
     env_root = os.environ.get("NOVEL_REVIEWED_CHAPTERS_DIR")
     if env_root:
         return Path(env_root)
-    for candidate_name in ("正文_人工二审", "人工二次审核过后的正文"):
+    for candidate_name in ("人工修改后的正文", "正文_人工二审", "人工二次审核过后的正文"):
         candidate = project_root / candidate_name
         if candidate.exists():
             return candidate
