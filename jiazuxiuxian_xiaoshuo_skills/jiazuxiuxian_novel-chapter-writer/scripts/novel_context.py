@@ -55,7 +55,21 @@ def find_matching_file(directory: Path, prefix: str) -> Path | None:
     if not directory.exists():
         return None
     matches = sorted(path for path in directory.glob(f"{prefix}*.md") if path.is_file())
-    return matches[0] if matches else None
+    if not matches:
+        return None
+
+    preferred_markers = ("（新）", "(新)", "新版", "终稿", "修订", "重写")
+
+    def sort_key(path: Path) -> tuple[int, float, str]:
+        stem = path.stem
+        marker_score = 1 if any(marker in stem for marker in preferred_markers) else 0
+        try:
+            mtime = path.stat().st_mtime
+        except OSError:
+            mtime = 0.0
+        return (marker_score, mtime, stem)
+
+    return max(matches, key=sort_key)
 
 
 def effective_chapter_path(chapters_dir: Path, chapter: int, reviewed_dir: Path | None) -> Path | None:
